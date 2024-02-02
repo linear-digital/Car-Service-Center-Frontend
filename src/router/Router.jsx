@@ -4,6 +4,9 @@ import Home from "../components/Home/Home";
 import Appointment from "../components/Appointment/Appointment";
 import Dashboard from "../components/Dashboard/Dashboard";
 import AppointMents from "../components/Dashboard/AppointMents";
+import RequireAuth from "../components/Auth/RequireAuth";
+import Login from "../components/page/Login";
+import SignUp from "../components/page/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -20,20 +23,30 @@ const router = createBrowserRouter([
             },
             {
                 path: 'dashboard',
-                element: <Dashboard />,
+                element: <RequireAuth>
+                    <Dashboard />
+                </RequireAuth>,
                 children: [
                     {
                         index: true,
-                        element: <AppointMents />
+                        element: <RequireAuth><AppointMents /></RequireAuth>
                     },
                     {
                         path: 'appointments',
                         element: <AppointMents />
                     }
                 ]
+            },
+            {
+                path: "login",
+                element: <Login />
+            },
+            {
+                path: "signup",
+                element: <SignUp />
             }
         ]
-    }
+    },
 ])
 
 export default router

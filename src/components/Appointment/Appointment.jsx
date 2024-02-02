@@ -34,6 +34,11 @@ const Appointment = () => {
         form.setAttribute("style", "display: block;");
         form.removeAttribute("aria-modal");
     }
+    const showForm = () => {
+        const form = document.getElementById("loginModal");
+        form.setAttribute("style", "display: block;");
+        form.removeAttribute("aria-modal");
+    }
     const hideModal = () => {
         const form = document.getElementById("appointmentModal");
         form.setAttribute("style", "display: none;");
@@ -98,7 +103,7 @@ const Appointment = () => {
                                 }}
                             >
                                 {
-                                    services.map(service => <MenuItem 
+                                    services.map(service => <MenuItem
                                         onClick={() => setId(service._id)}
                                         key={service._id} value={service.name}>{service.name}</MenuItem>)
                                 }
@@ -107,7 +112,13 @@ const Appointment = () => {
                     </div>
                     <div className="mt-4 d-flex justify-content-center">
                         <button
-                            onClick={showModal}
+                            onClick={() => {
+                                if (!user) {
+                                    showForm()
+                                } else {
+                                    showModal()
+                                }
+                            }}
                             className="button">Book Now</button>
                     </div>
                     <hr className="mt-5" />
