@@ -11,6 +11,7 @@ const AppointMents = () => {
     const [user, loading] = useAuthState(auth)
     const [currentUser, setCurrentUser] = useState({})
     const [appintments, setAppintments] = useState([])
+    console.log(currentUser)
     useEffect(() => {
         (
             async () => {
