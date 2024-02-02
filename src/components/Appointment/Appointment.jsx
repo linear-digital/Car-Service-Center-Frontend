@@ -10,6 +10,7 @@ import { useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../Auth/firebase.config";
 import toast from "react-hot-toast";
+import Loader from "../Loader/Loader";
 const Appointment = () => {
     const location = useLocation()
     const [id, setId] = useState("")
@@ -17,13 +18,24 @@ const Appointment = () => {
     const [service, setService] = useState("")
     const [services, setServices] = useState([])
     const [user, loading] = useAuthState(auth)
+    const [patching, setPatching] = useState(false)
     useEffect(() => {
-        api.get('/services')
-            .then(res => setServices(res.data))
-        if (id) {
-            api.get(`/services/${id}`)
-                .then(res => setService(res.data.name))
-        }
+        (
+            async () => {
+                try {
+                    setPatching(true)
+                    await api.get('/services')
+                        .then(res => setServices(res.data))
+                    setPatching(false)
+                    if (id) {
+                        api.get(`/services/${id}`)
+                            .then(res => setService(res.data.name))
+                    }
+                } catch (error) {
+                    setPatching(false)
+                }
+            }
+        )()
 
     }, [id])
     useEffect(() => {
@@ -72,8 +84,8 @@ const Appointment = () => {
         }
     }
 
-    if (loading) {
-        return <div>Loading...</div>
+    if (loading || patching) {
+        return <Loader />
     }
     return (
         <>

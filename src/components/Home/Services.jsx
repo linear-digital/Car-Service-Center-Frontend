@@ -42,7 +42,7 @@ const ServiceCard = ({ name, desription, image, id }) => {
             <a href="service-details.html">
                 <div className="service-item">
                     <div className="service-img">
-                        <img src={`assets/image/services/${image ? image : "break-replacement.jpeg"}`} alt="Service"
+                        <img src={`/assets/image/services/${image ? image : "break-replacement.jpeg"}`} alt="Service"
                             height={280}
                             width={"100%"}
                         />

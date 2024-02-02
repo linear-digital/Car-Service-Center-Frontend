@@ -1,6 +1,7 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from "react-router-dom";
 import { auth } from '../../Auth/firebase.config';
+import Loader from '../../Loader/Loader';
 const Navbar = () => {
     const showForm = () => {
         const form = document.getElementById("loginModal");
@@ -10,7 +11,7 @@ const Navbar = () => {
     const [user, loading] = useAuthState(auth)
 
     if (loading) {
-        return "Loading..."
+        return <Loader />
     }
     return (
         <div>
@@ -18,7 +19,7 @@ const Navbar = () => {
                 {/* Menu For Mobile Device */}
                 <div className="mobile-nav">
                     <Link to="/" className="logo">
-                        <img src="assets/logo.png" alt="Logo" />
+                        <img src="/assets/logo.png" alt="Logo" />
                     </Link>
                 </div>
                 {/* Menu For Desktop Device */}
@@ -26,8 +27,8 @@ const Navbar = () => {
                     <div className="container">
                         <nav className="navbar navbar-expand-md navbar-light">
                             <Link to={'/'} className="navbar-brand">
-                                <img width={100} src="assets/logo.png" className="logo-one" alt="Logo" />
-                                <img src="assets/img/logo-two.png" className="logo-two" alt="Logo" />
+                                <img width={100} src="/assets/logo.png" className="logo-one" alt="Logo" />
+                                <img src="/assets/img/logo.png" className="logo-two" alt="Logo" />
                             </Link>
                             <div className="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                                 <ul className="navbar-nav ml-auto">

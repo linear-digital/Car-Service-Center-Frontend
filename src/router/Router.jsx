@@ -7,6 +7,9 @@ import AppointMents from "../components/Dashboard/AppointMents";
 import RequireAuth from "../components/Auth/RequireAuth";
 import Login from "../components/page/Login";
 import SignUp from "../components/page/SignUp";
+import Users from "../components/Dashboard/Users";
+import RequireAdmin from "../components/Auth/RequireAdmin";
+import Services from "../components/Dashboard/Services";
 
 const router = createBrowserRouter([
     {
@@ -29,11 +32,25 @@ const router = createBrowserRouter([
                 children: [
                     {
                         index: true,
-                        element: <RequireAuth><AppointMents /></RequireAuth>
+                        element: <RequireAuth>
+                            <AppointMents />
+                        </RequireAuth>
                     },
                     {
                         path: 'appointments',
                         element: <AppointMents />
+                    },
+                    {
+                        path: 'users',
+                        element: <RequireAdmin>
+                            <Users />
+                        </RequireAdmin>
+                    },
+                    {
+                        path: 'services',
+                        element: <RequireAdmin>
+                            <Services />
+                        </RequireAdmin>
                     }
                 ]
             },
