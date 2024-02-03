@@ -71,7 +71,7 @@ const AppointMents = () => {
     return (
         <div>
             <h2>Appintments</h2>
-            <table className="table table-striped" >
+            <table className="table table-striped overflow-auto" >
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -93,7 +93,12 @@ const AppointMents = () => {
                                     key={appintment._id}>
                                     <th scope="row">{index + 1}</th>
                                     <td>
-                                        <a href="#"
+                                        <a
+                                            onClick={() => {
+                                                showModal()
+                                                setSelected(appintment)
+                                            }}
+                                            href="#"
                                         >
                                             {appintment.service}
                                         </a>
@@ -147,6 +152,14 @@ const AppointMents = () => {
                                                 <button className={`btn btn-${appintment.status === "pending" ? "warning" : appintment.status === "accepted" ? "success" : "danger"}`} >
                                                     {appintment.status ? appintment.status : "Pending"}
                                                 </button>
+                                                <button
+                                                    className="btn btn-success mt-sm-2 col-5"
+                                                    style={{ width: "100px" }}
+                                                    onClick={() => {
+                                                        showModal()
+                                                        setSelected(appintment)
+                                                    }}
+                                                >See More</button>
                                             </td>
                                     }
                                 </tr>

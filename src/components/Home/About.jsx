@@ -21,7 +21,7 @@ const About = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 p-0">
+                    <div className="col-lg-6 p-0 mt-sm-5">
                         <div className="quality-img">
                             <img src="assets/image/about.png" alt="Quality" />
                         </div>

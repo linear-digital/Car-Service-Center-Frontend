@@ -91,15 +91,12 @@ const Appointment = () => {
         <>
             <div className="pt-100 pb-70">
                 <div className="container">
-                    <div className="mb-0 section-title">
+                    <div className="section-title">
                         <span className="sub-title">appointment</span>
-                        <h2>Family & dog friendly</h2>
+                        <h2>Book an Appointment</h2>
                     </div>
-                    <p className="mt-4" style={{ textAlign: 'center', maxWidth: '900px', margin: 'auto' }}>
-                        When you step into our garage, we don’t want to just take care of your vehicle. We also want to take care of you. Our stellar customer service is one of the reasons why we’ve been a tried-and-true solution for vehicle owners all over Hertfordshire area, and make sure you are offered the same attention and care. Once you drop off, we make sure to keep you in the know via service updates that come through email, text or phone call. We will call an Uber to help you to get to your destination and we offer bus tickets as well. Oh, and we have also cute shop dog named King Tom, he loves visitors(and treats!) and will likely come over and say hi.
-                    </p>
-
-                    <div className="d-flex mt-5 justify-content-center">
+                    
+                    <div className="d-lg-flex mt-5 justify-content-center">
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
                             <DatePicker
                                 label="Choose Date"
@@ -107,7 +104,7 @@ const Appointment = () => {
                                 onChange={(newValue) => setDate(newValue)}
                             />
                         </LocalizationProvider>
-                        <FormControl sx={{ minWidth: 250, ml: '20px' }}>
+                        <FormControl className="mt-lg-0 mt-sm-2 ms-sm-0 ms-lg-3" sx={{ minWidth: 250 }}>
                             <InputLabel id="services">Select Service</InputLabel>
                             <Select
                                 labelId="services"

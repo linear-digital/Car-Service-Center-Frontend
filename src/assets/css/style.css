@@ -82,7 +82,7 @@ img {
 }
 
 .pt-100 {
-  padding-top: 100px;
+  padding-top: 100px !important;
 }
 
 .pb-70 {
@@ -937,16 +937,16 @@ button:focus {
   content: '';
   right: -170px;
   top: -70px;
-  width: 285px;
+  width: 200px;
   height: 700px;
   background-color: #000000;
   -webkit-transform: rotate(-19deg);
   transform: rotate(-19deg);
 }
 
-.feature-area .feature-img img {
+/* .feature-area .feature-img img {
   display: none;
-}
+} */
 
 .feature-area .feature-shape img {
   position: absolute;
