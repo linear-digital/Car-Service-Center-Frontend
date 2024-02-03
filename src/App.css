@@ -36,6 +36,9 @@
 .MuiSelect-select{
     width: 250px !important;
 }
+a {
+    text-decoration: none;
+}
 @media (max-width: 575.98px) { 
     .mt-sm-5 {
         margin-top: 30px;
