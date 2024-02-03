@@ -113,7 +113,9 @@ const AppointMents = () => {
                                         currentUser.role === "admin" ? <td>
                                             <div className="d-flex justify-content-between align-items-center gap-2">
                                                 <div className="dropdown">
-                                                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <button className={`
+                                                    btn btn-${appintment.status === "pending" ? "warning" : appintment.status === "accepted" ? "success" : "danger"} dropdown-toggle
+                                                    `} type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                         {
                                                             appintment.status ? appintment.status : "Pending"
                                                         }
