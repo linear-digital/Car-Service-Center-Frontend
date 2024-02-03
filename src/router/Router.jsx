@@ -10,6 +10,7 @@ import SignUp from "../components/page/SignUp";
 import Users from "../components/Dashboard/Users";
 import RequireAdmin from "../components/Auth/RequireAdmin";
 import Services from "../components/Dashboard/Services";
+import Contact from "../components/contact/contact";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: "signup",
                 element: <SignUp />
+            },
+            {
+                path: "contact",
+                element: <Contact />
             }
         ]
     },

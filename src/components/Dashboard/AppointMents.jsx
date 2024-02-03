@@ -105,32 +105,33 @@ const AppointMents = () => {
                                     <td>{appintment.email}</td>
                                     <td>{appintment.phone}</td>
                                     {
-                                        currentUser.role === "admin" && <td>
+                                        currentUser.role === "admin" ? <td>
                                             <div className="d-flex justify-content-between align-items-center gap-2">
-                                                <select
-                                                    className="form-select form-select-sm col-5"
-                                                    style={{ width: "120px" }}
-                                                    aria-label="Small select example">
-                                                    <option >
-                                                        {appintment.status || "Status"}
-                                                    </option>
-                                                    <option value={"pending"}>
-                                                        <button
-                                                            className="btn btn-warning"
-                                                            onClick={() => updateStatus("pending", appintment)}
-                                                        >
-                                                            Pending
-                                                        </button>
-                                                    </option>
+                                                <div className="dropdown">
+                                                    <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        {
+                                                            appintment.status ? appintment.status : "Pending"
+                                                        }
+                                                    </button>
+                                                    <ul className="dropdown-menu px-2">
+                                                        <li>
+                                                            <button className="btn btn-warning w-100" onClick={() => updateStatus("pending", appintment)} type="button">
+                                                                Pending
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button className="btn btn-success w-100 mt-1" onClick={() => updateStatus("accepted", appintment)} type="button">
+                                                                Accept
+                                                            </button>
+                                                        </li>
+                                                        <li>
+                                                            <button className="btn btn-danger w-100 mt-1" onClick={() => updateStatus("rejected", appintment)} type="button">
+                                                                Reject
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
 
-                                                    <option value={"accepted"}>
-                                                        <button className="btn btn-warning"
-                                                            onClick={() => updateStatus("accepted", appintment)}
-                                                        >
-                                                            Accept
-                                                        </button>
-                                                    </option>
-                                                </select>
                                                 <button
                                                     className="btn btn-success col-5"
                                                     style={{ width: "100px" }}
@@ -141,6 +142,12 @@ const AppointMents = () => {
                                                 >See More</button>
                                             </div>
                                         </td>
+                                            :
+                                            <td>
+                                                <button className={`btn btn-${appintment.status === "pending" ? "warning" : appintment.status === "accepted" ? "success" : "danger"}`} >
+                                                    {appintment.status ? appintment.status : "Pending"}
+                                                </button>
+                                            </td>
                                     }
                                 </tr>
                             )

@@ -17,12 +17,10 @@ const Process = () => {
                             <div className="process-inner process-one">
                                 <i className="bx bxs-car-mechanic" />
                                 <h3>Identify Problems</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             </div>
                             <div className="process-inner">
                                 <i className="bx bxs-car-garage" />
                                 <h3>Start Servicing</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             </div>
                         </div>
                     </div>
@@ -38,12 +36,11 @@ const Process = () => {
                             <div className="process-inner process-two">
                                 <i className="bx bxs-car-crash" />
                                 <h3>Trial For Make Sure</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+
                             </div>
                             <div className="process-inner process-three">
                                 <i className="bx bxs-car-wash" />
                                 <h3>Deliver Service</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                             </div>
                         </div>
                     </div>
